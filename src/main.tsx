@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import App from './App';
 
 import './index.css';
+import { createMirageServer } from './mirage';
+
+createMirageServer();
 
 ReactDOM.render(
   <React.StrictMode>
