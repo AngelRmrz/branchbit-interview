@@ -51,7 +51,6 @@ Este proyecto implementa una sencilla aplicación web que simula un proceso de a
 - **Variables de entorno:**
   - `VITE_DEFAULT_USERNAME`: Nombre de usuario por defecto.
   - `VITE_DEFAULT_PASSWORD`: Contraseña por defecto.
-- **Mirage JS:** Configura la API simulada para responder a las solicitudes de los servicios.
 
 ## Instrucciones de Ejecución
 
