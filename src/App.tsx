@@ -1,6 +1,20 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Login } from '@/pages/Login';
+import { FormUser } from '@/pages/FormUser';
+import { Layout } from '@/components/Layout';
+import { Unauthorized } from '@/pages/Unauthorized';
+
 const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline text-cyan-600">Hello world!</h1>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Login />} />
+          <Route path="form-user" element={<FormUser />} />
+          <Route path="*" element={<Unauthorized />} />
+        </Route>
+      </Routes>
+    </Router>
   );
 };
 
