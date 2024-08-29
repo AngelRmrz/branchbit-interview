@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import AuthContext from '@/context/AuthContext';
 
 type LoginForm = {
   userName: string;
@@ -8,6 +9,7 @@ type LoginForm = {
 };
 
 export const useLogin = () => {
+  const { login } = useContext(AuthContext);
   const [attempts, setAttempts] = useState(0);
   const [isDisabled, setIsDisabled] = useState(false);
   const navigate = useNavigate();
@@ -22,7 +24,7 @@ export const useLogin = () => {
       });
 
       if (response.status === 200) {
-        console.log(response.data.message);
+        login(response.data.user);
         navigate('/form-user');
       }
     } catch (error) {

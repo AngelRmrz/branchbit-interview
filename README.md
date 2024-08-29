@@ -15,9 +15,14 @@ Este proyecto implementa una sencilla aplicación web que simula un proceso de a
 - **src:**
   - **assets:** Contiene los recursos estáticos como imágenes, iconos, etc.
   - **components:** Componentes reutilizables:
+    - **AppBar:** Componente para mostrar el encabezado de la aplicación.
+    - **RedirectAuth:** Componente para redireccionar a la pagina privada si ya está autenticado.
+    - **RequireAuth:** Componente para mostrar un mensaje de error si no está autenticado.
     - **ErrorMessage:** Muestra mensajes de error de manera consistente en toda la aplicación.
     - **Layout:** Define la estructura general de las páginas (encabezado, pie de página, etc.).
     - **Spinner:** Indica al usuario que se está cargando información.
+  - **context:** Contexto para compartir datos entre componentes.
+    - **AuthContext:** Contiene la información de autenticación y maneja la lógica de autenticación.
   - **hooks:** Lógica reutilizable:
     - **useGetUserByID:** Realiza la petición para obtener los datos de un usuario por su ID.
     - **useLogin:** Maneja la lógica de autenticación.

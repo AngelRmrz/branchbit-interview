@@ -3,18 +3,37 @@ import { Login } from '@/pages/Login';
 import { FormUser } from '@/pages/FormUser';
 import { Layout } from '@/components/Layout';
 import { Unauthorized } from '@/pages/Unauthorized';
+import { AuthProvider } from './context/AuthContext';
+import { RequiereAuth } from './components/Auth/RequiereAuth';
+import { RedirectAuth } from './components/Auth/RedirectAuth';
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Login />} />
-          <Route path="form-user" element={<FormUser />} />
-          <Route path="*" element={<Unauthorized />} />
-        </Route>
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route
+              index
+              element={
+                <RedirectAuth>
+                  <Login />
+                </RedirectAuth>
+              }
+            />
+            <Route
+              path="form-user"
+              element={
+                <RequiereAuth>
+                  <FormUser />
+                </RequiereAuth>
+              }
+            />
+            <Route path="*" element={<Unauthorized />} />
+          </Route>
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 };
 

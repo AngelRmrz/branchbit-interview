@@ -1,0 +1,1 @@
+export { default as RequiereAuth } from './RequiereAuth';
